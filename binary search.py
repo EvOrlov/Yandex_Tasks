@@ -9,7 +9,7 @@ from time import perf_counter
 
 def divide(array):
     mid = int(len(array) // 2)
-    if array[mid] > low:
+    if array[mid] > arr[-1]:
         return array[mid:]
     else:
         return array[:mid + 1]
@@ -17,9 +17,8 @@ def divide(array):
 
 # arr = list(range(int(1e7), int(10e7))) + [int(1e10), int(1e10)] + list(range(100000))
 # arr = [11, 12, 13] + list(range(3))
-arr = [4, 5, 1, 2, 3]
+arr = [3, 3, 4, 5, 2, 2, 2]
 start = perf_counter()
-low = arr[-1]
 if arr[0] > arr[-1]:
     lst = divide(arr)
     while True:
