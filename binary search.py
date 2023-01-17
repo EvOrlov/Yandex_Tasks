@@ -7,25 +7,29 @@
 from time import perf_counter
 
 
-def divide(array):
-    mid = int(len(array) // 2)
-    if array[mid] > arr[-1]:
-        return array[mid:]
+def divide(lst):
+    mid = int(len(lst) // 2)
+    if lst[mid] > lst[-1]:
+        return lst[mid:]
     else:
-        return array[:mid + 1]
+        return lst[:mid + 1]
 
 
-# arr = list(range(int(1e7), int(10e7))) + [int(1e10), int(1e10)] + list(range(100000))
-# arr = [11, 12, 13] + list(range(3))
-arr = [3, 3, 4, 5, 2, 2, 2]
-start = perf_counter()
-if arr[0] > arr[-1]:
+def find_max(arr):
+    if arr[0] <= arr[-1]:
+        return arr[-1]
     lst = divide(arr)
     while True:
         if len(lst) == 1 or lst[0] > lst[1] or lst[0] == lst[1] and len(lst) == 2:
-            print(lst[0])
-            break
+            return lst[0]
         lst = divide(lst)
-else:
-    print('max=', arr[-1])
+
+
+# array = list(range(int(1e7), int(10e7))) + [int(1e10), int(1e10)] + list(range(100000))
+# array = [11, 12, 13] + list(range(3))
+array = [3, 3, 4, 5, 2, 2, 2]
+# array = [1]
+# array = list(range(5))
+start = perf_counter()
+print(find_max(array))
 print(perf_counter() - start)
