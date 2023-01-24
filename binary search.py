@@ -8,7 +8,7 @@ from time import perf_counter
 
 
 def divide(lst):
-    mid = int(len(lst) // 2)
+    mid = len(lst) // 2
     if lst[mid] > lst[-1]:
         return lst[mid:]
     else:
